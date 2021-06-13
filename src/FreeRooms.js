@@ -11,11 +11,13 @@ const FreeRooms = () => {
                 if (meeting.endTime <= startTime) {
                     return;
                 }
-                if ((startTime >= meeting.startTime && endTime >= meeting.endTime) || (meeting.startTime >= startTime && meeting.endTime >= endTime)) {
-                    return false
+                if ((startTime >= meeting.startTime && startTime < meeting.endTime) || (endTime >= meeting.startTime && endTime <= meeting.endTime) ||
+                    (meeting.startTime >= startTime && meeting.startTime <= endTime) || (meeting.endTime > startTime && meeting.endTime <= endTime)) {
+                    return;
                 }
                 else {
                     rooms.push({
+                        id: meetingRoom.id,
                         meetingRoomName: meetingRoom.name,
                         floor: meetingRoom.floor,
                         building: selectedBuilding
@@ -26,8 +28,19 @@ const FreeRooms = () => {
 
     });
 
+    console.log(rooms);
     return (
-        <div>Hello world</div>
+        <>
+            <h1>Please select one of the Free Rooms</h1>
+            { rooms.map(room => (
+                <ul>
+                    <li key={room.id}>{room.meetingRoomName}</li>
+                    <li key={room.building}>{room.building}</li>
+                    <li key={room.floor}>{room.floor}</li>
+                </ul>
+            ))
+            }
+        </>
     )
 }
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
     useQuery
 } from "@apollo/client";
-import DropDown from './DropDown';
+import DropDown from './Common/DropDown';
 import BuildingDetails from './BuildingDetails';
 
 const Buildings = ({ query }) => {

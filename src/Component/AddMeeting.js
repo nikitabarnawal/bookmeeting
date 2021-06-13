@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import InputWithLabel from './InputWithLabel';
-import DropDown from './DropDown';
+import InputWithLabel from './Common/InputWithLabel';
+import DropDown from './Common/DropDown';
 import { useLocation } from "react-router-dom";
-import Button from './Button';
+import Button from './Common/Button';
 
 const AddMeeting = () => {
     const location = useLocation();

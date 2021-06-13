@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import App from './App';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import AddMeeting from './AddMeeting';
+import AddMeeting from '../src/Component/AddMeeting';
 import FreeRooms from './FreeRooms';
 
 import {
@@ -16,16 +16,16 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
-  uri: 'http://smart-meeting.herokuapp.com/graphql',
+  uri: 'http://smart-meeting.herokuapp.com',
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = "a123gjhgjsdf6576";
+  const token = "kathmandu";
   // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer${token}` : '',
+      token: token ? `Bearer${token}` : '',
     }
   }
 });
@@ -38,8 +38,10 @@ const client = new ApolloClient({
 const BUILDINGS = gql`
   query {
     Buildings {
+      id
       name
       meetingRooms{
+        id
         name
         floor
         meetings{

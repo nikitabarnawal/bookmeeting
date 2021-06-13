@@ -1,5 +1,5 @@
 import React from "react";
-import Buildings from './Buildings';
+import Buildings from '../src/Component/Buildings';
 
 function App({ query }) {
   return (
