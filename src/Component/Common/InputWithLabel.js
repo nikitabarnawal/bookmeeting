@@ -23,7 +23,7 @@ const InputWithLabel = ({
 
     return (
         <>
-            <label htmlFor={id}>{children}: </label>
+            <label htmlFor={id}>{children} </label>
             <input
                 type={type}
                 ref={inputRef}

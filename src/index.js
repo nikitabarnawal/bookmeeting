@@ -3,7 +3,8 @@ import { render } from 'react-dom';
 import App from './App';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import AddMeeting from '../src/Component/AddMeeting';
-import FreeRooms from './FreeRooms';
+import FreeRooms from './Component/FreeRooms';
+import SavedRooms from './Component/SavedRooms';
 
 import {
   ApolloClient,
@@ -62,6 +63,7 @@ render(
         <Route exact path="/" component={() => <App query={BUILDINGS} />} />
         <Route path="/addmeeting" component={AddMeeting} />
         <Route path="/freeRooms" component={FreeRooms} />
+        <Route path="/savedRooms" component={SavedRooms} />
       </Switch>
     </BrowserRouter>
   </ApolloProvider>,

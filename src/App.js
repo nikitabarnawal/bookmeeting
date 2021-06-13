@@ -3,7 +3,7 @@ import Buildings from '../src/Component/Buildings';
 
 function App({ query }) {
   return (
-    <div className="App" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column" }}>
+    <div className="App">
       <p>yo nikita!</p>
       <Buildings query={query} />
     </div>

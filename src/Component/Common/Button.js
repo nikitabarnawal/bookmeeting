@@ -17,7 +17,7 @@ function Button({ data, label, route, startTime, endTime, date, selectedBuilding
     }
 
     return (
-        <button type="button" onClick={(e) => handleClick(data)}>
+        <button className="button" type="button" onClick={(e) => handleClick(data)}>
             {label}
         </button>
     );
