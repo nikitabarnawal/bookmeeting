@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
     useQuery
 } from "@apollo/client";
@@ -19,7 +19,7 @@ const Buildings = ({ query }) => {
                 selectedValue={selectedBuilding}
                 onChange={setSelectedBuilding}
             />
-            { selectedBuilding && <BuildingDetails />}
+            { selectedBuilding && <BuildingDetails data={data.Buildings} />}
         </>
     )
 

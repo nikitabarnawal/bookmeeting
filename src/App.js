@@ -1,9 +1,9 @@
-// import React from "react";
+import React from "react";
 import Buildings from './Buildings';
 
 function App({ query }) {
   return (
-    <div className="App">
+    <div className="App" style={{ justifyContent: "center", alignItems: "center", display: "flex", flexDirection: "column" }}>
       <p>yo nikita!</p>
       <Buildings query={query} />
     </div>
