@@ -6,7 +6,10 @@ const BuildingDetails = (props) => {
     const data = props.data;
     let count = 0
     const date = new Date();
-    const today = '13/06/2021';
+    const day = ("0" + date.getDate()).slice(-2);
+    const month = ("0" + (date.getMonth() + 1)).slice(-2)
+    const year = date.getFullYear();
+    const today = `${day}/${month}/${year}`;
     const meetingRooms = props.data.reduce((acc, building) => acc + building.meetingRooms.length, 0);
 
     props.data.forEach(building => building.meetingRooms.forEach(meetingRoom => meetingRoom.meetings.forEach(
