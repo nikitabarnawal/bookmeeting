@@ -52,7 +52,7 @@ const FreeRooms = () => {
     return (
         <>
             <div className='addMeeting'>
-                <h1>Please select one of the Free Rooms</h1>
+                {rooms.length > 0 ? <h1>Please select one of the Free Rooms</h1> : <h1>No meeting rooms available</h1>}
                 {rooms.map(room => (
                     <div key={room.id} className="card" onClick={() => onselectMeetingRoom(room.meetingRoomName, room.building, room.floor)}>
                         <div className="container">
@@ -64,11 +64,13 @@ const FreeRooms = () => {
 
                 ))
                 }
-                <Button
-                    data={btndata}
-                    label={"Save"}
-                    route={"savedRooms"}
-                />
+                {rooms.length > 0 &&
+                    <Button
+                        data={btndata}
+                        label={"Save"}
+                        route={"savedRoom"}
+                    />
+                }
             </div>
         </>
     )
