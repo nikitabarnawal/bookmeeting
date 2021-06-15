@@ -14,12 +14,14 @@ const Buildings = ({ query }) => {
 
     return (
         <>
-            <DropDown
-                data={data.Buildings}
-                selectedValue={selectedBuilding}
-                onChange={setSelectedBuilding}
-            />
-            { selectedBuilding && <BuildingDetails data={data.Buildings} />}
+            <div style={{ padding: "20px" }} >
+                <DropDown
+                    data={data.Buildings}
+                    selectedValue={selectedBuilding}
+                    onChange={setSelectedBuilding}
+                />
+            </div>
+            {selectedBuilding && <BuildingDetails data={data.Buildings} />}
         </>
     )
 

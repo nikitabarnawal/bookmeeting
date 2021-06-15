@@ -11,6 +11,7 @@ const AddMeeting = () => {
     const [startTime, setStartTime] = useState("00:00");
     const [endTime, setEndTime] = useState("00:00");
     const [selectedBuilding, setSelectedBuilding] = useState('');
+    const [title, setTitle] = useState('');
 
     return (
         <>
@@ -43,6 +44,14 @@ const AddMeeting = () => {
                         >
                             <strong>EndTime:</strong>
                         </InputWithLabel>
+                        <InputWithLabel
+                            id="title"
+                            value={title}
+                            isFocused
+                            onInputChange={setTitle}
+                        >
+                            <strong>Title:</strong>
+                        </InputWithLabel>
                         <DropDown data={location.state.data} selectedValue={selectedBuilding} onChange={setSelectedBuilding} />
                     </div>
                 </div>
@@ -54,6 +63,7 @@ const AddMeeting = () => {
                     startTime={startTime}
                     endTime={endTime}
                     date={date}
+                    title={title}
                     selectedBuilding={selectedBuilding}
                 />
             </div>

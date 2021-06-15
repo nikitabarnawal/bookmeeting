@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 
-function Button({ data, label, route, startTime, endTime, date, selectedBuilding }) {
+function Button({ data, title, label, route, startTime, endTime, date, selectedBuilding }) {
     const history = useHistory();
 
     function handleClick(data) {
@@ -11,7 +11,8 @@ function Button({ data, label, route, startTime, endTime, date, selectedBuilding
                 startTime,
                 endTime,
                 date,
-                selectedBuilding
+                selectedBuilding,
+                title
             }
         });
     }

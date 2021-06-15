@@ -59,3 +59,7 @@ code {
   flex-direction: column;
 
 } 
+
+.card .clicked {
+  background-color: aqua;
+}
