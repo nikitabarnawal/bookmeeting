@@ -31,37 +31,36 @@ const ADD_MEETING = gql`
 
 
 const SavedRoom = () => {
-    const location = useLocation();
-    const [Meeting, { data }] = useMutation(ADD_MEETING);
-    console.log(36);
+  const location = useLocation();
+  const [Meeting] = useMutation(ADD_MEETING);
 
-    useEffect(() => {
-        Meeting({
-            variables: {
-                id: 101,
-                title: location.state.data.title,
-                startTime: location.state.data.startTime,
-                endTime: location.state.data.endTime,
-                date: location.state.data.date,
-                meetingRoomId: location.state.data.meetingRoomId,
+  useEffect(() => {
+    Meeting({
+      variables: {
+        id: 101,
+        title: location.state.data.title,
+        startTime: location.state.data.startTime,
+        endTime: location.state.data.endTime,
+        date: location.state.data.date,
+        meetingRoomId: location.state.data.meetingRoomId,
 
-            }
-        });
-    }, []);
+      }
+    });
+  }, []);
 
-    return (
-        <div class="addMeeting">
-            <div className="card">
-                <div className="container">
-                    <h4><b>Saved Meeting Room details:</b></h4>
-                    <p>MeetingRoom:{location.state.data.meetingRoomName}</p>
-                    <p>Building:{location.state.data.building}</p>
-                    <p>Floor:{location.state.data.floor}</p>
-                </div>
-            </div>
+  return (
+    <div className="addMeeting">
+      <div className="card">
+        <div className="container">
+          <h4><b>Saved Meeting Room details:</b></h4>
+          <p>MeetingRoom:{location.state.data.meetingRoomName}</p>
+          <p>Building:{location.state.data.building}</p>
+          <p>Floor:{location.state.data.floor}</p>
         </div>
+      </div>
+    </div>
 
-    )
+  )
 }
 
 export default SavedRoom;

@@ -5,7 +5,6 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
     ],
     "parserOptions": {
         "ecmaFeatures": {
@@ -14,12 +13,6 @@ module.exports = {
         "ecmaVersion": 12,
         "sourceType": "module"
     },
-    "plugins": [
-        "react"
-    ],
     "rules": {
-        "semi": ["error", "always"],
-        "quotes": ["error", "double"],
-        "indent": [2, "tab"],
     }
 };

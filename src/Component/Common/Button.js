@@ -18,7 +18,7 @@ function Button({ data, title, label, route, startTime, endTime, date, selectedB
     }
 
     return (
-        <button className="button" type="button" onClick={(e) => handleClick(data)}>
+        <button className="button" type="button" onClick={() => handleClick(data)}>
             {label}
         </button>
     );
