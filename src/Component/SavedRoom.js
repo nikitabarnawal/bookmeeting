@@ -49,7 +49,7 @@ const SavedRoom = () => {
   }, []);
 
   return (
-    <div className="addMeeting">
+    <div className="mainContainer">
       <div className="card">
         <div className="container">
           <h4><b>Saved Meeting Room details:</b></h4>

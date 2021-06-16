@@ -15,10 +15,10 @@ const AddMeeting = () => {
 
     return (
         <>
-            <div className="addMeeting">
+            <div className="mainContainer">
                 <div className="card">
                     <div className="container">
-                        <p className="addmeeting">Add meeting</p>
+                        <p>Add meeting</p>
                         <InputWithLabel
                             id="date"
                             value={date}

@@ -67,7 +67,7 @@ const FreeRooms = () => {
 
     return (
         <>
-            <div className='addMeeting'>
+            <div className='mainContainer'>
                 {rooms.length > 0 ? <h1>Please select one of the Free Rooms</h1> : <h1>No meeting rooms available</h1>}
                 {rooms.map(room => (
                     <div key={room.id} className={name} onClick={() => onselectMeetingRoom(room.id, room.meetingRoomName, room.building, room.floor)}>
