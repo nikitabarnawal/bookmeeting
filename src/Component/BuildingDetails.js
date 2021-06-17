@@ -11,9 +11,15 @@ const BuildingDetails = (props) => {
     const year = date.getFullYear();
     const today = `${day}/${month}/${year}`;
     const meetingRooms = props.data.reduce((acc, building) => acc + building.meetingRooms.length, 0);
+    const hour = new Date().getHours();
+    let activeMeeting = 0;
 
     props.data.forEach(building => building.meetingRooms.forEach(meetingRoom => meetingRoom.meetings.forEach(
         meeting => (meeting.date === today) ? count = count + 1 : 0
+    )))
+
+    props.data.forEach(building => building.meetingRooms.forEach((meetingRoom) => meetingRoom.meetings.forEach(
+        meeting => (hour >= meeting.startTime && hour < meeting.endTime) ? activeMeeting = activeMeeting + 1 : 0
     )))
 
     return (
@@ -34,6 +40,7 @@ const BuildingDetails = (props) => {
                 <div className="container">
                     <h4><b>Meetings</b></h4>
                     <p>Total: {count} today </p>
+                    <p>Total: {activeMeeting} going on now</p>
                 </div>
             </div>
             <Button data={data} label={"Add a Meeting"} route={"addMeeting"} />

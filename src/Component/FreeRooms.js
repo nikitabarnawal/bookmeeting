@@ -12,9 +12,11 @@ const FreeRooms = () => {
     const location = useLocation();
     const { data, startTime, endTime, date, selectedBuilding, title } = location.state;
     const rooms = [];
+    console.log(15, date);
     const pickeddate = date.split("-");
     const newdate = pickeddate.reduceRight((acc, curr) => acc + curr + '/', '');
-
+    const selectdate = newdate.replace(/(^[/\s]+)|([/\s]+$)/g, '');
+    console.log(19, selectdate);
     const onselectMeetingRoom = (id, meetingRoomName, building, floor) => {
         setMeetingRoomName(meetingRoomName);
         setBuilding(building);
@@ -30,20 +32,18 @@ const FreeRooms = () => {
         floor,
         startTime,
         endTime,
-        date,
+        selectdate,
         title
     };
 
 
     data.find(building => building.name === selectedBuilding).meetingRooms.forEach(meetingRoom => {
         let overlap = false;
-        let matcheddate = false;
 
         meetingRoom.meetings.forEach(meeting => {
-            const meetingdate = meeting.date + '/'
-            if (meetingdate === newdate) {
+            console.log(44, meeting.date, selectdate);
+            if (meeting.date === selectdate) {
                 if (meeting.endTime <= startTime) {
-                    matcheddate = true;
                     return;
                 }
                 if ((startTime >= meeting.startTime && startTime < meeting.endTime) || (endTime > meeting.startTime && endTime <= meeting.endTime) ||
@@ -54,7 +54,7 @@ const FreeRooms = () => {
             }
         })
 
-        if (!overlap || !matcheddate) {
+        if (!overlap) {
             rooms.push({
                 id: meetingRoom.id,
                 meetingRoomName: meetingRoom.name,

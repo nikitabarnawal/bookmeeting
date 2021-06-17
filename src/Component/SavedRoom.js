@@ -34,18 +34,27 @@ const SavedRoom = () => {
   const location = useLocation();
   const [Meeting] = useMutation(ADD_MEETING);
 
-  useEffect(() => {
-    Meeting({
-      variables: {
-        id: 101,
-        title: location.state.data.title,
-        startTime: location.state.data.startTime,
-        endTime: location.state.data.endTime,
-        date: location.state.data.date,
-        meetingRoomId: location.state.data.meetingRoomId,
 
-      }
-    });
+  useEffect(() => {
+    const randomId = Math.floor(Math.random() * 100);
+    try {
+      Meeting({
+        variables: {
+          id: randomId,
+          title: location.state.data.title,
+          startTime: location.state.data.startTime,
+          endTime: location.state.data.endTime,
+          date: location.state.data.date,
+          meetingRoomId: location.state.data.meetingRoomId,
+
+        }
+      });
+    }
+    catch (error) {
+      console.log("error returned", error);
+      return error;
+    }
+
   }, []);
 
   return (
